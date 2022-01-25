@@ -27,6 +27,14 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+
+      <nav>
+        <ul>
+          <li>
+            <Link to="/istorijos">Istorijos</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 )
@@ -36,7 +44,7 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: `Gera patirtis`,
 }
 
 export default Header
