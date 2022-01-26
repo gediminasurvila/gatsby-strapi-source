@@ -6,15 +6,15 @@ import Seo from "../components/seo";
 
 const BlogPost = props => {
   const post = props.data.allStrapiPost.nodes[0];
-  // const image = getImage(post.remoteImage);
+  const image = getImage(post.remoteImage);
   return (
     <Layout>
       <Seo title={post.Title} />
       <h1>{post.Title}</h1>
-      {/* <GatsbyImage image={image} alt="" /> */}
+      <GatsbyImage image={image} alt="" />
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query ($id: String!) {
@@ -30,6 +30,15 @@ export const query = graphql`
         published_at
         updated_at
         created_at
+        remoteImage {
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
       }
     }
   }
