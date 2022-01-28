@@ -6,7 +6,7 @@ const PostListItem = ({ post }) => {
   const link = `/istorijos/${slug(post.Title)}`
 
   return (
-    <h2>
+    <h2 className="text-2xl mb-2">
       <Link to={link}>{post.Title}</Link>
     </h2>
   )

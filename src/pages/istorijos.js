@@ -13,9 +13,8 @@ const BlogPage = props => {
   return (
   <Layout>
     <Seo title="Blog" />
-    <h1>Istorijos</h1>
+    <h1 className="text-4xl mb-4">Istorijos</h1>
     { posts.map( post => <PostListItem key={post.id} post={post}/>)}
-    <Link to="/">Atgal</Link>
   </Layout>
 );
 

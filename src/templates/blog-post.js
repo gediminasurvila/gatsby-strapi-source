@@ -9,7 +9,7 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <Seo title={post.Title} />
-      <h1>{post.Title}</h1>
+      <h1 className="text-4xl mb-4">{post.Title}</h1>
       <Img fluid={post?.CoverImage?.localFile?.childImageSharp.fluid} />
     </Layout>
   );
