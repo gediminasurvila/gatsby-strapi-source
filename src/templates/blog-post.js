@@ -1,17 +1,17 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Img from "gatsby-image"
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
 const BlogPost = props => {
   const post = props.data.allStrapiPost.nodes[0];
-  const image = getImage(post.remoteImage);
+
   return (
     <Layout>
       <Seo title={post.Title} />
       <h1>{post.Title}</h1>
-      <GatsbyImage image={image} alt="" />
+      <Img fluid={post?.remoteImage?.childImageSharp.fluid} />
     </Layout>
   );
 };
@@ -32,11 +32,9 @@ export const query = graphql`
         created_at
         remoteImage {
           childImageSharp {
-            gatsbyImageData(
-              width: 200
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
